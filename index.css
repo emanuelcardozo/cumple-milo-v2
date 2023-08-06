@@ -106,8 +106,11 @@ section {
 
 .m_logo {
     height: 50%;
+    padding: 1rem;
+    
     position: absolute;
     top: 20%;
+    
     -webkit-filter: drop-shadow(.5rem .5rem 0 black);
     filter: drop-shadow(.5rem .5rem 0 black);    
 }
