@@ -1,0 +1,116 @@
+@import url('https://fonts.cdnfonts.com/css/super-mario-256');
+
+:root {
+    --blue-color: color(srgb 0.0434 0.6092 0.8443);
+    --yellow-color: color(srgb 0.9796 0.8134 0.0189);
+    --green-color: color(srgb 0.269 0.6874 0.2921);
+    --red-color: color(srgb 0.8955 0.1645 0.1514);
+
+    --first-animation-delay: 0s;
+    --second-animation-delay: 1s;
+    --third-animation-delay: 1.5s;
+    --fourth-animation-delay: 2s;
+    --fifth-animation-delay: 2.5s;
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: 'Super Mario 256', sans-serif;
+    width: 100vw;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+    background-color: black;
+    background-image: url("src/img/bg.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+main {
+    scroll-snap-type: y mandatory;
+}
+
+section {
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0,0,0,.25);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    scroll-snap-align: start;
+}
+
+.pre_title {
+    font-size: 10vh;
+    text-align: center;
+    animation-delay: var(--second-animation-delay);
+
+    display: flex;
+}
+
+.title {
+    font-size: 15vh;
+    text-align: center;
+    animation-delay: var(--third-animation-delay);
+ 
+    display: flex;
+}
+
+.letter {
+    -webkit-text-stroke: .5rem black;
+    text-shadow: 1rem 1rem 0 black;
+    z-index: 1;
+}
+
+.letter_yellow {
+    color: var(--yellow-color);
+}
+
+.letter_blue {
+    color: var(--blue-color);
+}
+
+.letter_green {
+    color: var(--green-color);
+}
+
+.letter_red {
+    color: var(--red-color);
+}
+
+.title_container {
+    width: fit-content;
+    height: fit-content;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.number_container {
+    display: flex;
+}
+
+.m_logo {
+    height: 50%;
+    position: absolute;
+    top: 20%;
+    -webkit-filter: drop-shadow(.5rem .5rem 0 black);
+    filter: drop-shadow(.5rem .5rem 0 black);
+    animation-delay: var(--first-animation-delay);
+}
+
+.number {
+    font-size: 20vh;
+    text-align: center;
+    animation-delay: var(--fourth-animation-delay);
+}
