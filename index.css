@@ -29,9 +29,12 @@ body {
     background-image: url("src/img/bg.jpg");
     background-size: cover;
     background-position: center;
+
+    overflow: hidden;
 }
 
-main {
+.main {
+    overflow-y: scroll;
     scroll-snap-type: y mandatory;
 }
 
@@ -94,6 +97,7 @@ section {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 1rem;
 }
 
 .number_container {
@@ -105,12 +109,26 @@ section {
     position: absolute;
     top: 20%;
     -webkit-filter: drop-shadow(.5rem .5rem 0 black);
-    filter: drop-shadow(.5rem .5rem 0 black);
-    animation-delay: var(--first-animation-delay);
+    filter: drop-shadow(.5rem .5rem 0 black);    
 }
 
 .number {
     font-size: 20vh;
     text-align: center;
     animation-delay: var(--fourth-animation-delay);
+}
+
+.start_container {
+    animation-iteration-count: infinite;
+    animation-duration: 2.5s;
+}
+
+.start_message {
+    margin-top: 2rem;
+    color: white;
+    font-size: 2rem;
+    text-align: center;
+    letter-spacing: .2rem;
+    -webkit-text-stroke: .15rem black;
+    animation-delay: var(--fifth-animation-delay);
 }
