@@ -22,10 +22,13 @@ function scrollToSection(id) {
     });
 }
 
-function playSound(src) {
-    const audioElement = new Audio(src);
+let audioElement
 
-    audioElement.play();
+function playSound(src) {
+  console.log(src)
+    // audioElement = new Audio("/src/audio/" + src);
+
+    // audioElement.play();
 }
 
 window.onload = function() {
@@ -33,10 +36,11 @@ window.onload = function() {
   pages.each(function(i,e){
     $(this).click(function(event){
       const self = this
+
       if(self.id === "start_section") {
-        playSound('/src/audio/smb_bg.mp3')
+        playSound('smb_bg.mp3')
       } else {
-        playSound('/src/audio/smb3_enter_level.wav')
+        playSound('smb3_enter_level.wav')
       }
       var x = event.pageX;
       var y = event.pageY;
@@ -49,19 +53,27 @@ window.onload = function() {
       $(pages[nextItem]).css('z-index', parseInt($(this).css('z-index')) + 1);
       $(pages[nextItem]).css('clip-path', 'circle(0% at '+ x +'px '+ y +'px)');
 
-      console.log(self, nextItem)
-      
       anime({
         targets: $('.page')[nextItem],
         update: function(anim) {
           $(pages[nextItem]).css('clip-path', 'circle('+ (anim.progress*2) +'% at '+ x +'px '+ y +'px)');
-
-          if(anim.progress === 100 && self.id === "start_section") {
-            self.remove()
-            document.querySelectorAll(`.page:nth-child(${nextItem}) .animate__paused`).forEach((el) => el.classList.remove('animate__paused'))
+          
+          if(anim.progress === 100) {
+            pages[nextItem].querySelectorAll(`.animate__paused`)
+              .forEach((el) => el.classList.remove('animate__paused'))
+            
+            if(self.id === "start_section") {
+              self.remove()
+            }
           }
         }
       });
     });
   });
 }
+
+window.onblur = function() {
+  if(audioElement)
+    audioElement.pause()
+}
+
