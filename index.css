@@ -25,23 +25,11 @@ body {
     height: 100vh;
     padding: 0;
     margin: 0;
-    background-color: black;
-    background-image: url("src/img/bg.jpg");
-    background-size: cover;
-    background-position: center;
-
-    overflow: hidden;
-}
-
-.main {
-    overflow-y: scroll;
-    scroll-snap-type: y mandatory;
 }
 
 section {
     height: 100vh;
     width: 100vw;
-    background-color: rgba(0,0,0,.25);
 
     display: flex;
     flex-direction: column;
@@ -49,6 +37,32 @@ section {
     justify-content: center;
 
     scroll-snap-align: start;
+    z-index: 1;
+    position: absolute;
+
+    /* background-image: url("src/img/bg.jpg");
+    background-size: cover;
+    background-position: center; */
+}
+
+section:first-child {
+    z-index: 2;
+}
+
+section:nth-child(2) {
+    background-color: green;
+}
+
+section:nth-child(3) {
+    background-color: yellow;
+}
+
+section img {
+    width: inherit;
+    height: inherit;
+    position: absolute;
+    object-fit: cover;
+    object-position: center;
 }
 
 .pre_title {
@@ -68,24 +82,24 @@ section {
 }
 
 .letter {
-    -webkit-text-stroke: .5rem black;
-    text-shadow: 1rem 1rem 0 black;
+    -webkit-text-stroke: 1vh black;
+    text-shadow: 1vh 1vh 0 black;
     z-index: 1;
 }
 
-.letter_yellow {
+.letter_yellow, .letter:nth-child(4n) {
     color: var(--yellow-color);
 }
 
-.letter_blue {
+.letter_blue, .letter:nth-child(4n+1) {
     color: var(--blue-color);
 }
 
-.letter_green {
+.letter_green, .letter:nth-child(4n+2) {
     color: var(--green-color);
 }
 
-.letter_red {
+.letter_red, .letter:nth-child(4n+3) {
     color: var(--red-color);
 }
 
@@ -105,7 +119,10 @@ section {
 }
 
 .m_logo {
-    height: 50%;
+    width: 50vh;
+    height: 50vh;
+    object-fit: cover;
+    object-position: center;
     padding: 1rem;
     
     position: absolute;
@@ -124,6 +141,8 @@ section {
 .start_container {
     animation-iteration-count: infinite;
     animation-duration: 2.5s;
+    
+    cursor: pointer;
 }
 
 .start_message {
@@ -132,6 +151,6 @@ section {
     font-size: 2rem;
     text-align: center;
     letter-spacing: .2rem;
-    -webkit-text-stroke: .15rem black;
+    -webkit-text-stroke: .25vh black;
     animation-delay: var(--fifth-animation-delay);
 }
