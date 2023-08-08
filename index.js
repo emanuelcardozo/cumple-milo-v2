@@ -25,7 +25,7 @@ function scrollToSection(id) {
 let audioElement
 
 function playSound(src) {
-  console.log(src)
+    console.log(src)
     // audioElement = new Audio("/src/audio/" + src);
 
     // audioElement.play();
