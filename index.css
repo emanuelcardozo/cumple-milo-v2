@@ -140,7 +140,6 @@ div.letter.letter_red, .letter:nth-child(4n+3) {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 1rem;
 }
 
 .m_logo {
@@ -254,6 +253,8 @@ div.letter.letter_red, .letter:nth-child(4n+3) {
 .character {
     width: auto;
     height: 50vh;
+
+    filter: drop-shadow(5px 5px 5px black);
 }
 
 .character.luigi, .character.peach {

@@ -22,13 +22,13 @@ function scrollToSection(id) {
     });
 }
 
+const bgAudioElement = new Audio("/src/audio/smb_bg.mp3")
 let audioElement
 
 function playSound(src) {
-    console.log(src)
-    // audioElement = new Audio("/src/audio/" + src);
-
-    // audioElement.play();
+    audioElement?.pause()
+    audioElement = new Audio("/src/audio/" + src);
+    audioElement.play();
 }
 
 window.onload = function() {
@@ -38,7 +38,7 @@ window.onload = function() {
       const self = this
 
       if(self.id === "start_section") {
-        playSound('smb_bg.mp3')
+        bgAudioElement.play()
       } else {
         playSound('smb3_enter_level.wav')
       }
@@ -75,5 +75,18 @@ window.onload = function() {
 window.onblur = function() {
   if(audioElement)
     audioElement.pause()
+
+  if(bgAudioElement)
+    bgAudioElement.pause()
+}
+
+window.onfocus = function() {
+  // if(audioElement && audioElement.paused && audioElement.currentTime !== 0) {
+  //   audioElement.play()
+  // }
+
+  if(bgAudioElement && bgAudioElement.paused && bgAudioElement.currentTime !== 0) {
+    bgAudioElement.play()
+  }
 }
 
