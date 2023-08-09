@@ -31,10 +31,20 @@ function playSound(src) {
     audioElement.play();
 }
 
+let prevTouchTime = Date.now()
+const MIN_SCREEN_TIME_IN_MILIS = 3_000
+
 window.onload = function() {
   const pages = $('.page')
   pages.each(function(i,e){
+    let sectionViewed = false
     $(this).click(function(event){
+      const currentTime = Date.now()
+
+      if(!sectionViewed && currentTime - prevTouchTime < MIN_SCREEN_TIME_IN_MILIS) return
+
+      sectionViewed = true
+      prevTouchTime = currentTime
       const self = this
 
       if(self.id === "start_section")

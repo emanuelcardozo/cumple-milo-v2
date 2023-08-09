@@ -112,6 +112,10 @@ section img {
     display: flex;
 }
 
+section:nth-child(6) .title {
+    font-size: 12vh;
+}
+
 section:not(:first-child) .title {
     animation-delay: var(--first-animation-delay);
 }
