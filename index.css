@@ -12,10 +12,11 @@
     --fourth-animation-delay: 2s;
     --fifth-animation-delay: 2.5s;
 
-    --type-part-1-duration: 2.5s;
-    --type-part-2-delay: var(--type-part-1-duration);
+    --type-animation-duration: 2.5s;
+    --type-part-1-delay: var(--third-animation-delay);
+    --type-part-2-delay: calc(var(--type-animation-duration) + var(--type-part-1-delay));
 
-    --type-container-delay: calc(var(--type-part-1-duration) * 2);
+    --type-container-delay: calc(var(--type-animation-duration) + var(--type-part-2-delay));
 }
 
 * {
@@ -73,6 +74,11 @@ section:nth-child(5) {
     background: radial-gradient(circle, black 0%, red 50%, black 100%);
 }
 
+section:nth-child(6) {
+    background-color: red;
+    background: radial-gradient(circle, blue 0%, green 50%, red 100%);
+}
+
 section img {
     width: inherit;
     height: inherit;
@@ -106,8 +112,8 @@ section img {
     display: flex;
 }
 
-.title:not(:first-child) {
-    animation-delay: 0;
+section:not(:first-child) .title {
+    animation-delay: var(--first-animation-delay);
 }
 
 .letter {
@@ -231,8 +237,9 @@ div.letter.letter_red, .letter:nth-child(4n+3) {
     white-space: nowrap;
     letter-spacing: .15rem;
     border-right: .15rem solid orange;
-    animation: typing var(--type-part-1-duration) steps(20, end) forwards,
+    animation: typing var(--type-animation-duration) steps(20, end) forwards,
     blink-caret 1s step-end forwards;
+    animation-delay: var(--type-part-1-delay);
     opacity: 0;
 }
 
@@ -254,6 +261,7 @@ div.letter.letter_red, .letter:nth-child(4n+3) {
     width: auto;
     height: 50vh;
 
+    animation-delay: var(--second-animation-delay);
     filter: drop-shadow(5px 5px 5px black);
 }
 

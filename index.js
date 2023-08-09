@@ -37,11 +37,11 @@ window.onload = function() {
     $(this).click(function(event){
       const self = this
 
-      if(self.id === "start_section") {
+      if(self.id === "start_section")
         bgAudioElement.play()
-      } else {
-        playSound('smb3_enter_level.wav')
-      }
+
+      playSound('smb3_enter_level.wav')
+
       var x = event.pageX;
       var y = event.pageY;
 
