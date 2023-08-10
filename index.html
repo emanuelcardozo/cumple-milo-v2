@@ -13,7 +13,7 @@
     <script src="index.js"></script>
 </head>
 <body>
-    <section id="start_section" class="page start_section">
+    <!-- <section id="start_section" class="page start_section">
         <div class="start_container animate__animated animate__zoomInDown">
             <h3 class="start_message animate__animated animate__pulse">
                 Importante!!!
@@ -141,6 +141,30 @@
             </div>
             <div class="dialog typewriter part_2 animate__animated animate__paused">
                 perder?
+            </div>
+        </div>
+    </section> -->
+
+    <section id="options" class="page">
+        <img src="src/img/stage_bg.png" class="bg1" alt="bg" />
+
+        <div class="options__container">
+            <div class="pipe_container" onclick="return characterIn(event)">
+                <img src="src/img/m_pipe.png" class="op_character character_yes" alt="character_yes" />
+                <img src="src/img/pipe.png" class="pipe pipe_yes" alt="pipe_yes" />
+                <div class="title animate__animated animate__pulse">
+                    <div class="letter letter_yellow">S</div>
+                    <div class="letter letter_green">I</div>
+                </div>
+            </div>
+
+            <div class="pipe_container" onclick="return characterIn(event)">
+                <img src="src/img/m_plant.png" class="op_character character_no" alt="character_no" />
+                <img src="src/img/pipe.png" class="pipe pipe_no" alt="pipe_no" />
+                <div class="title animate__animated animate__pulse">
+                    <div class="letter letter_red">N</div>
+                    <div class="letter letter_blue">O</div>
+                </div>
             </div>
         </div>
     </section>
