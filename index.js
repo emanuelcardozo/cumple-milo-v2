@@ -34,53 +34,55 @@ function playSound(src) {
 let prevTouchTime = Date.now()
 const MIN_SCREEN_TIME_IN_MILIS = 3_000
 
-// window.onload = function() {
-//   const pages = $('.page')
-//   pages.each(function(i,e){
-//     let sectionViewed = false
-//     $(this).click(function(event){
-//       const currentTime = Date.now()
+window.onload = function() {
+  const pages = $('.page')
+  pages.each(function(i,e){
+    let sectionViewed = false
+    $(this).click(function(event){
+      const currentTime = Date.now()
 
-//       if(!sectionViewed && currentTime - prevTouchTime < MIN_SCREEN_TIME_IN_MILIS) return
+      if( i === pages.length-1 ||
+        !sectionViewed && 
+        currentTime - prevTouchTime < MIN_SCREEN_TIME_IN_MILIS) return
 
-//       sectionViewed = true
-//       prevTouchTime = currentTime
-//       const self = this
+      sectionViewed = true
+      prevTouchTime = currentTime
+      const self = this
 
-//       if(self.id === "start_section")
-//         bgAudioElement.play()
+      if(self.id === "start_section")
+        bgAudioElement.play()
 
-//       playSound('smb3_enter_level.wav')
+      playSound('smb3_enter_level.wav')
 
-//       var x = event.pageX;
-//       var y = event.pageY;
+      var x = event.pageX;
+      var y = event.pageY;
 
-//       var nextItem = i + 1;
-//       if (nextItem >= pages.length){
-//         nextItem = 1;
-//       }
+      var nextItem = i + 1;
+      if (nextItem >= pages.length){
+        nextItem = 1;
+      }
       
-//       $(pages[nextItem]).css('z-index', parseInt($(this).css('z-index')) + 1);
-//       $(pages[nextItem]).css('clip-path', 'circle(0% at '+ x +'px '+ y +'px)');
+      $(pages[nextItem]).css('z-index', parseInt($(this).css('z-index')) + 1);
+      $(pages[nextItem]).css('clip-path', 'circle(0% at '+ x +'px '+ y +'px)');
 
-//       anime({
-//         targets: $('.page')[nextItem],
-//         update: function(anim) {
-//           $(pages[nextItem]).css('clip-path', 'circle('+ (anim.progress*2) +'% at '+ x +'px '+ y +'px)');
+      anime({
+        targets: $('.page')[nextItem],
+        update: function(anim) {
+          $(pages[nextItem]).css('clip-path', 'circle('+ (anim.progress*2) +'% at '+ x +'px '+ y +'px)');
           
-//           if(anim.progress === 100) {
-//             pages[nextItem].querySelectorAll(`.animate__paused`)
-//               .forEach((el) => el.classList.remove('animate__paused'))
+          if(anim.progress === 100) {
+            pages[nextItem].querySelectorAll(`.animate__paused`)
+              .forEach((el) => el.classList.remove('animate__paused'))
             
-//             if(self.id === "start_section") {
-//               self.remove()
-//             }
-//           }
-//         }
-//       });
-//     });
-//   });
-// }
+            if(self.id === "start_section") {
+              self.remove()
+            }
+          }
+        }
+      });
+    });
+  });
+}
 
 window.onblur = function() {
   if(audioElement)
