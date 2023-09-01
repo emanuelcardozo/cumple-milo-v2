@@ -23,6 +23,7 @@
     box-sizing: border-box;
     padding: 0;
     margin: 0;
+    user-select: none;    
 }
 
 @media (orientation: landscape) {
@@ -40,6 +41,10 @@
     #vertical_message {
         display: none !important;
     }
+}
+
+body, section, section > div {
+    overflow: hidden;
 }
 
 #vertical_message .start_container {
@@ -62,7 +67,7 @@
 body {
     font-family: 'Super Mario 256', sans-serif;
     width: 100vw;
-    height: 100vh;
+    height: 100dvh;
     padding: 0;
     margin: 0;
 
@@ -70,7 +75,6 @@ body {
     -webkit-text-stroke: .25vh black;
 
     background-color: black;
-    overflow: hidden;
 }
 
 section {

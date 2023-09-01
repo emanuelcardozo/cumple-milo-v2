@@ -62,7 +62,7 @@ window.onload = function() {
         nextItem = 1;
       }
       
-      $(pages[nextItem]).css('z-index', parseInt($(this).css('z-index')) + 1);
+      $(pages[nextItem]).css('z-index', parseInt($(this).css('z-index')) + 2);
       $(pages[nextItem]).css('clip-path', 'circle(0% at '+ x +'px '+ y +'px)');
 
       anime({
