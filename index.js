@@ -77,6 +77,8 @@ window.onload = function() {
             if(self.id === "start_section") {
               self.remove()
             }
+
+            pages[i].style = "display: none;"
           }
         }
       });
