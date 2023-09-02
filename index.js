@@ -121,7 +121,7 @@ function characterIn(event) {
 function sendMessage(confirm) {
   const textMessage = confirm ? "Genial! Contá conmigo." : "Lo siento, no puedo."
   const responsible = new URLSearchParams(location.search).get('res')
-  const phone = responsible === "carla" ? "1169295449" : "1126482560"
+  const phone = responsible === "car" ? "1169295449" : "1126482560"
   const whatsappLink = `https://wa.me/+540${phone}/?text=${encodeURI(textMessage)}`
   
   location.href = whatsappLink
