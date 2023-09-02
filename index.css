@@ -43,7 +43,7 @@
     }
 }
 
-body, section, section > div {
+body, section > div {
     overflow: hidden;
 }
 
@@ -253,6 +253,7 @@ div.letter.letter_red, .letter:nth-child(4n+3) {
 
 .dialog__container {
     width: 90%;
+    height: 15vh;
     padding: 1rem;
     margin: 1rem;
     background: black;
@@ -268,12 +269,13 @@ div.letter.letter_red, .letter:nth-child(4n+3) {
 }
 
 .dialog {
-    font-size: 1.5rem;
+    font-size: 4vh;
     text-align: center;
     margin: auto;
     
     text-shadow: 1px 1px darkgray;
     letter-spacing: 1px;
+    overflow: visible;
 }
 
 .typewriter {
@@ -303,7 +305,7 @@ div.letter.letter_red, .letter:nth-child(4n+3) {
 
 .character {
     width: auto;
-    height: 50vh;
+    height: 60vh;
 
     animation-delay: var(--second-animation-delay);
     filter: drop-shadow(5px 5px 5px black);

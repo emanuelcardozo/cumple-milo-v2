@@ -127,6 +127,10 @@ function sendMessage(confirm) {
   location.href = whatsappLink
 }
 
+function stopAnimation(event) {
+  event.currentTarget.children[0].classList.add('animate__paused')
+}
+
 function restart(event) {
   event.currentTarget.children[0].classList.add('animate__paused')
   playSound('smb_1-up.wav')
