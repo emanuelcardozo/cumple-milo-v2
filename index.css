@@ -43,7 +43,19 @@
     }
 }
 
-body, section > div {
+@supports (-webkit-touch-callout: none) {
+    section > div {
+        overflow: hidden;
+    }
+}
+
+@supports not (-webkit-touch-callout: none) {
+    section {
+        overflow: hidden;
+    }
+}
+
+body {
     overflow: hidden;
 }
 
@@ -281,7 +293,6 @@ div.letter.letter_red, .letter:nth-child(4n+3) {
 .typewriter {
     overflow: hidden;
     white-space: nowrap;
-    letter-spacing: .15rem;
     border-right: .15rem solid orange;
     animation: typing var(--type-animation-duration) steps(20, end) forwards,
     blink-caret 1s step-end forwards;
